@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package componente_Telas;
 
 import componente_Regras.ControleBotoes;
@@ -31,7 +27,7 @@ public class TelaPrincipal extends JFrame {
     private int jogadas = 0;
     
     private int erros = 0;
-    private int acertos;
+    private int acertos = 0;
     
     private JPanel painel;
     
@@ -60,7 +56,6 @@ public class TelaPrincipal extends JFrame {
                         //controle de inclusao
                         if ( !listaSelecionados.contains( cont )){
                             listaSelecionados.add( cont );
-                            
                         }
                         
                         if ( jogadas == QUANTIDADES_JOGADAS ){
@@ -69,8 +64,8 @@ public class TelaPrincipal extends JFrame {
                                 //deixar os botoes com estado inicial
                                 for ( ControleBotoes cb: listaSelecionados ){
                                     cb.zerarSelecoes();
-                                   acertos = cb.contagemAcertos();
-                                }
+                                   
+                            } 
                             } 
                             jogadas = 0;
                             listaSelecionados.clear();
@@ -79,7 +74,7 @@ public class TelaPrincipal extends JFrame {
                     }
                 }
             }
-        };
+    };
         
          //Evento sair
         acaoSair = new ActionListener() {
@@ -95,8 +90,7 @@ public class TelaPrincipal extends JFrame {
         
         JTextField txtAcertos = new JTextField();
         txtAcertos.setBounds(80, 10, 100, 30);
-        //txtAcertos.setText( Integer.toString( ControleBotoes.class. ) );
-        txtAcertos.setText( Integer.toString( acertos ) );
+        txtAcertos.setText( Integer.toString( acertos ));
         this.add(txtAcertos);
         
         JLabel jlErros = new JLabel("Erros");
