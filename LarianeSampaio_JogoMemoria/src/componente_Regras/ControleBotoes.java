@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,7 +20,8 @@ public class ControleBotoes {
     
     private String nmBotao;
     private Map<JButton, StatusBotoes> referenciaBotoes;
-    private Integer contagemAcertos = 0;
+    public Integer contagemAcertos = 0;
+    public Integer  errou = 0;
  
    
     
@@ -31,6 +33,7 @@ public class ControleBotoes {
         alterarSelecao( botao, status );
          if ( this.isTodosSelecionados() ){
             alterarStatusTodosBotoes( StatusBotoes.PARES_ENCONTRADOS );
+            JOptionPane.showMessageDialog(null, "Acertou!!" );
         } else {
              alterarVisualizacaoBotao( botao );
          }
@@ -85,15 +88,10 @@ public class ControleBotoes {
             case PARES_ENCONTRADOS: //mudar cor e exibir imagem
                 botao.setBackground( Color.red );
                 botao.setText( this.nmBotao );
-                contagemAcertos ++;
-                //botao.setEnabled( false );
                 break;
         }
     }
     
-    public Integer contagemAcertos(){
-        return contagemAcertos;
-    }
     
     public void zerarSelecoes(){
        alterarStatusTodosBotoes( StatusBotoes.NORMAL );
