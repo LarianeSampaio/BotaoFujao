@@ -1,5 +1,6 @@
 package minhaimobiliaria;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -10,7 +11,10 @@ public class MinhaImobiliaria {
     
     public static void main(String[] args) {
         
-    Imovel imoveis[] = new Imovel[100]; //cria vetor
+    //Imovel imoveis[] = new Imovel[100]; //cria vetor
+    
+    ArrayList<Imovel> imoveis = new ArrayList(); //declaraçao do array
+    
         int i = 0;
         int opcao = 0;
 
@@ -33,29 +37,33 @@ public class MinhaImobiliaria {
                 imovel.setAreaTotal(Entrada.leiaDouble("ÁREA imóvel"));
                 imovel.setValor(Entrada.leiaDouble("VALOR imóvel"));
 
-                // armazena objeto imovel no vetor
-                imoveis[i] = imovel;
+                // armazena objeto imovel no array
+                imoveis.add(imovel);
 
                 // avanca ponteiro
                 i++;
 
             } else if (opcao == 2) {
                 System.out.println("Listagem completa dos imóveis:");
-
-                for (int j = 0; j < i; j++) {
-                    System.out.print(imoveis[j].getCodigoImovel() + " - ");
-                    System.out.print(imoveis[j].getEndereco() + " - ");
-                    System.out.print(imoveis[j].getAreaTotal() + " m² - ");
-                    System.out.println(imoveis[j].getValor());
+                
+                int j = imoveis.size(); //ve tamanho do array
+                
+                for ( j = 0; j < i; j++ ) {
+                    System.out.print(imoveis.get(j).getCodigoImovel() + " - ");
+                    System.out.print(imoveis.get(j).getEndereco() + " - ");
+                    System.out.print(imoveis.get(j).getAreaTotal() + " m² - ");
+                    System.out.println(imoveis.get(j).getValor());
                 }
                 System.out.println("");
 
             } else if (opcao == 3) {
                 System.out.println("Listagem Código e Valor metro quadrado");
-
-                for (int j = 0; j < i; j++) {
-                    System.out.print(imoveis[j].getCodigoImovel() + " - ");
-                    System.out.println(imoveis[j].obterValorMetroQuadrado());
+                int j = imoveis.size();
+                
+                for ( j = 0; j < i; j++ ) {
+                    
+                    System.out.print(imoveis.get(j).getCodigoImovel() + " - ");
+                    System.out.println(imoveis.get(j).obterValorMetroQuadrado());
                 }
                 System.out.println("");
             }
