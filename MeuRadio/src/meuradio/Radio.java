@@ -15,9 +15,10 @@ import javax.swing.*;
  * Lariane Sampaio
  */
 public class Radio {
-    int estacao; // limites de 88 a 110
-    int volume; // limites de 0 a 40
-    boolean estado; // ligado/desligado
+    
+   private int estacao; // limites de 88 a 110
+   private int volume; // limites de 0 a 40
+   private boolean estado; // ligado/desligado
 
     public int getEstacao() {
         return estacao;
@@ -43,9 +44,6 @@ public class Radio {
         this.estado = estado;
     }
 
-
-    
-  
     //verifica status do Radio
     public String estadoRadio(){
         boolean result = estado;
@@ -59,6 +57,7 @@ public class Radio {
     public void ligar(){
         
        this.setEstado(true);
+       System.out.println("#####################################");
        System.out.println("####Status Atualizado do Radio###");
        System.out.println(estadoRadio());
        System.out.println("A estação atual é " + this.getEstacao());
@@ -67,6 +66,7 @@ public class Radio {
     
     public void desligar(){
         this.setEstado(false);
+        System.out.println("#####################################");
         System.out.println("####Status Atualizado do Radio###");
         System.out.println(estadoRadio()); 
         System.out.println("A estação atual é " + this.getEstacao());
@@ -79,26 +79,26 @@ public class Radio {
         
          if (estacao >= 110){
              estacao = 88;
+              System.out.println("#####################################");
              System.out.println("ATENÇÃO: Radio já esta na estação 110, então irá voltar para 88");
          }
          else {
              estacao = this.getEstacao() + 1;
+              System.out.println("#####################################");
               System.out.println("A estação foi alterada com sucesso, agora é " + estacao);
          }
-   
+        
         System.out.println("####Status Atualizado do Radio###");
         System.out.println(estadoRadio());
         System.out.println("A estação atual é " + estacao);
         System.out.println("O volume atual é " + volume);
-        
-        
-        
-        
+
         
     }
     public void decrementarEstacao(){
         
         estacao = this.getEstacao() -1;
+        System.out.println("#####################################");
         System.out.println("A estação foi alterada, agora é "+ estacao);
         
         System.out.println("####Status Atualizado do Radio###");
@@ -114,10 +114,12 @@ public class Radio {
         
         
          if ( volume >= 40 ){
+             System.out.println("#####################################");
              System.out.println("ATENÇÃO: Volume máximo atingido");
          }
          else {
              volume = this.getVolume()+1;
+             System.out.println("#####################################");
              System.out.println("Volume aumentou, agora é " + volume);
          }
              
@@ -132,10 +134,12 @@ public class Radio {
     public void decrementarVolume (){
         
         if ( volume == 0 ){
+            System.out.println("#####################################");
             System.out.println("O volume já está zerado");
         }
         else {
                 volume = this.getVolume() -1;
+                System.out.println("#####################################");
                 System.out.println("O volume diminuiu , agora é " + volume);
         }
         

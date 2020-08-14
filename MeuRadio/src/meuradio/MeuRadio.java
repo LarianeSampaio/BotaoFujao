@@ -9,73 +9,57 @@ import java.util.Scanner;
  * @Lariane Sampaio
  */
 public class MeuRadio {
-    
-    public static void menu(){
-      
-		System.out.println("\n\n### Rádio - Escolha uma opção ###");
-		System.out.println("\n                  =========================== ");
-		System.out.println("                  |     1 - Ligar              |");
-		System.out.println("                  |     2 - Desligar           |");
-		System.out.println("                  |     3 - Incrementar estação|");
-		System.out.println("                  |     4 - Decrementar estação|");
-		System.out.println("                  |     5 - Aumentar Volume    |");
-		System.out.println("                  |     6 - Diminuir Volume    |");
-		System.out.println("                  |     0 - Sair               |");
-		System.out.println("                  ============================= ");
-                System.out.println("Escolha uma Opcao:");
-               
-    }
 
-    
-    public static void main(String[] args) {
+  public static void main(String[] args) {
         Radio radio = new Radio();
+        
         radio.setEstado(false);//inicia desligado
         radio.setEstacao(88);
         radio.setVolume(0);
-         
-                
-        int opcao;
-        Scanner entrada = new Scanner(System.in);
-        
-        do{
-            menu();
-            opcao = entrada.nextInt();
-           // opcao = Entrada.leiaInt("Escolha uma Opcao: ");
-            System.out.print("\n");
-            switch(opcao){
-            case 1:
+        int i = 0;
+        int opcao = 0;
+
+        while (opcao != 7) {
+
+            opcao = Entrada.leiaInt(""
+                    +"Rádio- Escolha uma opção!\n\n"
+                    + "[1] - Ligar\n"
+                    + "[2] - Desligar\n"
+                    + "[3] - Incrementar estação\n"
+                    + "[3] - Decrementar estação\n"
+                    + "[3] - Aumentar Volume\n"
+                    + "[3] - Diminuir Volume\n"
+                    + "[7] - Sair");
+
+            if (opcao == 1) {
+                // ligar
                 radio.ligar();
-                break;
-                
-            case 2:
+
+            } else if (opcao == 2) {
+                //desligar
                 radio.desligar();
-                break;
-                
-            case 3:
+               
+
+            } else if (opcao == 3) {
+                //incrementar estacao
                 radio.incrementarEstacao();
-                break;
                 
-            case 4:
+            } else if (opcao == 4) {
+                //decrementar estacao
                 radio.decrementarEstacao();
-                break;
-            
-            case 5:
+                
+            } else if (opcao == 5) {
+                //incrementar volume
                 radio.incrementarVolume();
-                break;
                 
-            case 6:
+            } else if (opcao == 6) {
+                //decrementar estacao
                 radio.decrementarVolume();
-                break;
                 
-            case 0:
-                System.out.println("Programa encerrado.");
-                break;
-            
-            default:
-                System.out.println("Opção inválida.");
             }
-        } while(opcao != 0);
+        }
+
+        System.exit(0);
     }
-
-
+ 
 }
