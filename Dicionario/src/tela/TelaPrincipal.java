@@ -254,7 +254,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_PainelCadAncestorAdded
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
-        DesocultarPainelCad();
+        EsconderPainelCad();
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
@@ -271,8 +271,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
        String significado = txtSignificado.getText();
        String fonte = txtFonte.getText(); 
        
-       DefaultTableModel val = (DefaultTableModel)TabelaTermos.getModel();
-       val.addRow(new String[]{Numero, termo, significado, fonte});
+       DefaultTableModel tabelaModelo = (DefaultTableModel)TabelaTermos.getModel();
+       tabelaModelo.addRow(new String[]{Numero, termo, significado, fonte});
        
        //Validar campos.
        
@@ -300,7 +300,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void TabelaTermosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_TabelaTermosAncestorAdded
         
-      DefaultTableModel modelo = new DefaultTableModel();
+      DefaultTableModel tabela = new DefaultTableModel();
  
       ArrayList<Object>NomeColuna = new ArrayList<>();
       
@@ -310,9 +310,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
       NomeColuna.add("Fonte");
       
        for (Object Coluna : NomeColuna) {
-          modelo.addColumn(Coluna);
+          tabela.addColumn(Coluna);
         }
-      this.TabelaTermos.setModel(modelo);
+      this.TabelaTermos.setModel(tabela);
       
       ArrayList<Object[]> dados=new ArrayList<>();
       Object[]informacao1 = new Object[]{"1", "Análise SWOT "," Analisa a competitividade de uma organização, considerando variáveis como Forças, Oportunidades, Fraquezas, Ameaças; popularmente chamada de “FOFA”.", " https://administradores.com.br/artigos/50-termos-utilizados-frequentemente-no-mundo-executivo"};
@@ -340,7 +340,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
       dados.add(informacao10);
       
       for(Object[] dadosTermos: dados){
-          modelo.addRow(dadosTermos);
+          tabela.addRow(dadosTermos);
           
       }
 
@@ -349,13 +349,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void txtPesquisarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisarKeyPressed
        //Pesquisar
-       DefaultTableModel model = (DefaultTableModel)TabelaTermos.getModel();
-        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+        DefaultTableModel modelo = (DefaultTableModel)TabelaTermos.getModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(modelo);
         TabelaTermos.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(txtPesquisar.getText().trim()));
     }//GEN-LAST:event_txtPesquisarKeyPressed
 
-    public void DesocultarPainelCad(){
+    public void EsconderPainelCad(){
         PainelCad.setVisible(true);
     }
     
