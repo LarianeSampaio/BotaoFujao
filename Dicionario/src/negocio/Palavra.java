@@ -10,7 +10,7 @@ import java.util.logging.Logger;
  *
  * Lariane Sampaio
  */
-public class Dados {
+public class Palavra {
     
     private String numero;
     private String termo;
@@ -18,14 +18,14 @@ public class Dados {
     private String fonte;
 
     
-    public Dados(String numero, String termo, String significado, String fonte) {
+    public Palavra(String numero, String termo, String significado, String fonte) {
         this.numero = numero;
         this.termo = termo;
         this.significado = significado;
         this.fonte = fonte;
     }
     
-     public Dados(){
+     public Palavra(){
      //   
     } 
      
@@ -61,7 +61,7 @@ public class Dados {
         this.fonte = fonte;
     }
 
-   public String salvarTermo(){
+   public String salvarPalavra(){
        //salvar em txt
         try {
             FileWriter fw = new FileWriter("DicionarioTermos.txt", true);
@@ -77,7 +77,7 @@ public class Dados {
             
          
         } catch (IOException ex) {
-            Logger.getLogger(Dados.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Palavra.class.getName()).log(Level.SEVERE, null, ex);
             
         }
         

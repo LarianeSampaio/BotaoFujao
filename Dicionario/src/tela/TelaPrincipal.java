@@ -2,7 +2,7 @@ package tela;
 
 
 import recurso.AplicaNimbusLookAndFeel;
-import negocio.Dados;
+import negocio.Palavra;
 import java.awt.event.KeyAdapter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -264,7 +264,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
       
       
-       Dados dados = new Dados();
+       Palavra palavra = new Palavra();
        
        String Numero = txtNumeroTermo.getText();
        String termo = txtTermo.getText();
@@ -278,12 +278,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
        
        
        //Salvando em arquivo TXT.
-       dados.setNumero(txtNumeroTermo.getText());
-       dados.setTermo(txtTermo.getText());
-       dados.setSignificado(txtSignificado.getText());
-       dados.setFonte(txtFonte.getText());
+       palavra.setNumero(txtNumeroTermo.getText());
+       palavra.setTermo(txtTermo.getText());
+       palavra.setSignificado(txtSignificado.getText());
+       palavra.setFonte(txtFonte.getText());
        
-       JOptionPane.showMessageDialog(null,dados.salvarTermo());
+       JOptionPane.showMessageDialog(null,palavra.salvarPalavra());
       
         
        //Limpa campos
