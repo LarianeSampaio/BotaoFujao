@@ -14,3 +14,7 @@ Numero Termo: 12
 Termo: teste
 Significado: terere
 Fonte :tere
+Numero Termo: 25
+Termo: Lideranca
+Significado: Ser lider
+Fonte :internet

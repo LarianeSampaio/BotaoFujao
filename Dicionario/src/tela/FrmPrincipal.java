@@ -11,10 +11,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 
-public class TelaPrincipal extends javax.swing.JFrame {
+public class FrmPrincipal extends javax.swing.JFrame {
 
     
-    public TelaPrincipal() {
+    public FrmPrincipal() {
         initComponents();
         
     }
@@ -258,7 +258,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jbSairActionPerformed
 
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
@@ -274,7 +274,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
        DefaultTableModel tabelaModelo = (DefaultTableModel)TabelaTermos.getModel();
        tabelaModelo.addRow(new String[]{Numero, termo, significado, fonte});
        
-       //Validar campos.
+      
        
        
        //Salvando em arquivo TXT.
@@ -286,7 +286,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
        JOptionPane.showMessageDialog(null,palavra.salvarPalavra());
       
         
-       //Limpa campos
+       //Deixar os campos em branco
        txtTermo.setText("");
        txtNumeroTermo.setText("");
        txtFonte.setText("");
@@ -348,7 +348,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_TabelaTermosAncestorAdded
 
     private void txtPesquisarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisarKeyPressed
-       //Pesquisar
+       
         DefaultTableModel modelo = (DefaultTableModel)TabelaTermos.getModel();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(modelo);
         TabelaTermos.setRowSorter(tr);
@@ -368,7 +368,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
        AplicaNimbusLookAndFeel.pegaNimbus();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPrincipal().setVisible(true);
+                new FrmPrincipal().setVisible(true);
             }
         });
     }

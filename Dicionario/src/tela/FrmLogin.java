@@ -13,12 +13,12 @@ import javax.swing.JOptionPane;
  *
  * @author Lariane
  */
-public class TelaLogin extends javax.swing.JFrame {
+public class FrmLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaLogin
      */
-    public TelaLogin() {
+    public FrmLogin() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -139,9 +139,9 @@ public class TelaLogin extends javax.swing.JFrame {
         if(txtUsuario.getText().equals("admin")&&txtSenha.getText().equals("123")){
 
             Mess.aviso("Login feito com sucesso!!");
-            TelaPrincipal telaPrincipal = new TelaPrincipal();
-            telaPrincipal.setVisible(true);
-            telaPrincipal.OcultarPainelCad();
+            FrmPrincipal frmPrincipal = new FrmPrincipal();
+            frmPrincipal.setVisible(true);
+            frmPrincipal.OcultarPainelCad();
             
             dispose();
 
@@ -161,7 +161,7 @@ public class TelaLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLogin().setVisible(true);
+                new FrmLogin().setVisible(true);
             }
         });
     }
